@@ -35,9 +35,10 @@ VIDEO_API_URL = getenv("VIDEO_API_URL", 'https://shrutibots.site')
 API_KEY = getenv("API_KEY", 'NxGBNexGenBotsa9ab87') # youtube song api key, generate free key or buy paid plan from https://console.nexgenbots.xyz
 
 UPSTREAM_REPO = getenv(
-    None
+    "UPSTREAM_REPO",
+    "https://github.com/TxSn4x/neomusic",
 )
-UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", None)
+UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
@@ -120,6 +121,7 @@ if SUPPORT_GROUP:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
         )
+
 
 
 

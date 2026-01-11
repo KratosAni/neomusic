@@ -32,9 +32,9 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
 def git():
     REPO_LINK = config.UPSTREAM_REPO
     if config.GIT_TOKEN:
-        GIT_USERNAME = REPO_LINK.split("com/")[1].split("/")[0]
-        TEMP_REPO = REPO_LINK.split("https://")[1]
-        UPSTREAM_REPO = f"https://{GIT_USERNAME}:{config.GIT_TOKEN}@{TEMP_REPO}"
+        GIT_USERNAME = REPO_LINK.split(None)[1].split(None)[0]
+        TEMP_REPO = REPO_LINK.split(None)[1]
+        UPSTREAM_REPO = None
     else:
         UPSTREAM_REPO = config.UPSTREAM_REPO
     try:
@@ -69,3 +69,4 @@ def git():
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -r requirements.txt")
         LOGGER(__name__).info(f"Fetching updates from upstream repository...")
+
